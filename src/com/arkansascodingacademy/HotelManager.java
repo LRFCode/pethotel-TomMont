@@ -28,8 +28,6 @@ public class HotelManager
         {
             //get input from user and puts it in one big string
             command = user.getInput("Please enter command: ");
-            //show the user what they typed
-            System.out.println("The command is: " + command);
             executeUserCommand(command);
         } while (!command.equals("exit"));
     }
@@ -38,10 +36,6 @@ public class HotelManager
     {
         //split the big string into one string per word
         String word[] = command.split(" ");
-        for (String parameter: word)
-        {
-            System.out.println(parameter);
-        }
 
         String instruction = word[0];
 
@@ -50,11 +44,20 @@ public class HotelManager
             String petName = word[1];
             int suiteNumber = Integer.parseInt(word[2]);
             hotel.checkIn(petName, suiteNumber);
-        }
-        else if (instruction.equals("checkout"))
+        } else if (instruction.equals("checkout"))
         {
             int suiteNumber = Integer.parseInt(word[1]);
             hotel.checkOut(suiteNumber);
+        } else if (instruction.equals("list"))
+        {
+            hotel.list();
+        } else if (instruction.equals("show"))
+        {
+            int suiteNumber = Integer.parseInt(word[1]);
+            hotel.show(suiteNumber);
+        } else if (instruction.equals("count"))
+        {
+            hotel.count();
         }
 
     }
@@ -62,6 +65,6 @@ public class HotelManager
     public static void main(String[] args)
     {
         HotelManager hotelManager = new HotelManager();
-        hotelManager.executeUserCommands();;
+        hotelManager.executeUserCommands();
     }
 }
