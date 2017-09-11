@@ -44,20 +44,40 @@ public class HotelManager
             String petName = word[1];
             int suiteNumber = Integer.parseInt(word[2]);
             hotel.checkIn(petName, suiteNumber);
-        } else if (instruction.equals("checkout"))
+        }
+        else if (instruction.equals("checkout"))
         {
             int suiteNumber = Integer.parseInt(word[1]);
             hotel.checkOut(suiteNumber);
-        } else if (instruction.equals("list"))
+        }
+        else if (instruction.equals("checkoutbyname"))
+        {
+            String name = word[1];
+            hotel.checkOutByName(name);
+        }
+        else if (instruction.equals("list"))
         {
             hotel.list();
-        } else if (instruction.equals("show"))
+        }
+        else if (instruction.equals("show"))
         {
             int suiteNumber = Integer.parseInt(word[1]);
             hotel.show(suiteNumber);
-        } else if (instruction.equals("count"))
+        }
+        else if (instruction.equals("count"))
         {
             hotel.count();
+        }
+        else if (instruction.equals("walk"))
+        {
+            int suiteNumber = Integer.parseInt(word[1]);
+            hotel.walk(suiteNumber);
+        }
+        else if (instruction.equals("move"))
+        {
+            int suiteNumber1 = Integer.parseInt(word[1]);
+            int suiteNumber2 = Integer.parseInt(word[2]);
+            hotel.move(suiteNumber1, suiteNumber2);
         }
 
     }

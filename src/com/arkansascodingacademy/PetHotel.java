@@ -17,10 +17,23 @@ public class PetHotel
         System.out.println("Checking out pet in suite " + suiteNumber);
     }
 
+    public void checkOutByName(String searchName)
+    {
+        for (int i = 0; i <= petName.length; i++)
+        {
+            if (searchName.equalsIgnoreCase(petName[i]))
+            {
+                System.out.println("Found " + searchName);
+                petName[i] = null;
+            }
+        }
+    }
+
+
     public void list()
     {
         System.out.println("Here are the pets checked in:");
-        for(String name : petName)
+        for (String name : petName)
         {
             System.out.println(name);
         }
@@ -34,14 +47,38 @@ public class PetHotel
 
     public void count()
     {
-        int count= 0;
-        for(String name: petName)
+        int count = 0;
+        for (String name : petName)
         {
-            if(name != null)
+            if (name != null)
             {
                 count++;
             }
         }
-        System.out.println(count);
+        System.out.println("There are " + count + " pets checked in.");
+    }
+
+    public void walk(int suiteNumber)
+    {
+        System.out.println(petName[suiteNumber] + " is being walked");
+    }
+
+    public void move(int suiteNumber1, int suiteNumber2)
+    {
+        if (petName[suiteNumber2] == null)
+        {
+            System.out.println("Moving " + petName[suiteNumber1] + " from " + suiteNumber1 + " to " + suiteNumber2);
+            petName[suiteNumber2] = petName[suiteNumber1];
+            petName[suiteNumber1] = null;
+        } else
+        {
+            System.out.println("HEYO, THERES A DOG HERE");
+
+        }
+
+    }
+    public void swap(int suiteNumber1, int suiteNumber2)
+    {
+        petName[suiteNumber2] 
     }
 }
